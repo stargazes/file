@@ -1,0 +1,18 @@
+腾讯云账号：root lyh123456789
+MySQL远程登录账号：mysuer   mypassword
+
+
+解决远程连接MySQL的问题：
+
+1：打开3306端口的访问权限
+
+未授权的用户解决方式：（通常第二种）
+
+解决方法：
+1。 改表法。可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在localhost的那台电脑，登入mysql后，更改 "mysql" 数据库里的 "user" 表里的 "host" 项，从"localhost"改称"%"
+
+mysql -u root -pvmwaremysql>use mysql;mysql>update user set host = '%' where user = 'root';mysql>select host, user from user;
+
+2. 授权法。例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话。
+
+GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;

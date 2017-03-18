@@ -1,0 +1,12 @@
+Apache
+1.开启rewrite和vhost配置
+2.vhost配置documentRoot，跟serverName
+3.system里面配置host
+
+
+
+Artisan命令：
+创建控制器的命令：
+php artisan make:Controller IndexController
+查看路由的命令：
+php artisan route:list

@@ -1,0 +1,35 @@
+blade模板引擎用法：
+{{$name}} 获取后台的值。
+
+@{{name}}不解析@后面的内容，原样输出
+
+{{$name or 'Default'}} 有值则输出没有则输出默认值
+
+{{isset($name)?$name:'Default'}} 设置了值就输入没有就输出默认  三言表达式
+
+{!!$str!!}在前端页面解析str里面的字符内容，要不然不解析直接输入，假如里面有js这些
+
+
+mysql:
+存储过程批量插入数据：
+
+
+drop procedure if exists insertt;#如果存在储存过程则删除
+delimiter $$                     #创建一个储存过程
+create procedure insertt()
+begin
+set @username=2000000990;     #学号
+set @password=2001;    
+while @username<2000001990 do     #如果@a<2000010001则返回true，继续执行
+insert into register (username,password)values(@username,@password);
+set @username=@username+1;
+set @password=@password+1;
+end while;
+end$$
+delimiter ;
+call insertt();
+
+
+这个是 myisam的存储引擎表的文件
+
+.frm 表定义文件。.myd 数据文件， .myi 索引文件。
